@@ -23,6 +23,8 @@
             <a href="">Админам</a>
         </div>
     </div>
+    <div class="Content">
     @yield('content')
+    </div>
 </body>
 </html>
