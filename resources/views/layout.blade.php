@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./assets/turnip-color.png" type="image/png">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('/css/style.css')}}" type="text/css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
         </nav>
         <div class="Bottomnav">
             <a href="/">О проекте</a>
-            <a href="">Админам</a>
+            <a href="/admin">Админам</a>
         </div>
     </div>
     <div class="Content">

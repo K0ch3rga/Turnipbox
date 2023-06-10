@@ -9,4 +9,12 @@ class Product extends Model
 {
     use HasFactory;
     public $timesamps = false;
+
+    function review() {
+        return $this->hasMany(Review::class);
+    }
+
+    function receipt() {
+        return $this->hasMany(Receipt::class);
+    }
 }

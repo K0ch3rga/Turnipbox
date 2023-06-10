@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ean');
+            $table->foreignId('product')->references('id')->on('product');
             $table->string('text');
             $table->unsignedTinyInteger('stars');
             $table->string('name');

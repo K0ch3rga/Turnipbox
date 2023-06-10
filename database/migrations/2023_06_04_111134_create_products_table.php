@@ -12,11 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('ean');
             $table->string('name');
-            $table->string('manufacturer');
-            $table->string('type');
-            $table->json('tags');
+            $table->string('manufacturer')->nullable();
+            $table->unsignedSmallInteger('massvalue')->nullable();
+            $table->enum('masstype', ['г', 'кг', 'мл', 'л',])->nullable();
+            $table->string('type')->nullable();
+            $table->json('tags')->nullable();
+            $table->boolean('edit')->default(true);
+            $table->timestamps();
         });
     }
 

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    function index() {
-        return view('Review');
+    function index()
+    {
+        $products = new Product;
+        return view('review', ['products'=>$products->all()]);
     }
 
     function review_check(Request $request) {
@@ -20,10 +23,13 @@ class ReviewController extends Controller
         ]);
 
         $review = new Review();
-        $review->ean = $request->input('');
-        $review->text = $request->input('');
+        $review->product = $request->input('product');
+        $review->text = $request->input('text');
+        $review->stars = $request->input('stars');
+        $review->name = $request->input('name');
 
         $review->save();
-        return redirect('info', ['ean' => $review->ean]);
+
+        return redirect()->route('product', ['id', $request->product]);
     }
 }

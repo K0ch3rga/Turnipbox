@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+    function product() {
+        return $this->belongsTo(Product::class);
+    }
 }
