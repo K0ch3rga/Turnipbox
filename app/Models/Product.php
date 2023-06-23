@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public $timesamps = false;
+    // public $timesamps = false;
+
+    protected $guarded = ['id'];
 
     function review() {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class, 'id', 'product_id');
     }
 
     function receipt() {
-        return $this->hasMany(Receipt::class);
+        return $this->hasMany(Receipt::class, 'id', 'product_id');
     }
 }

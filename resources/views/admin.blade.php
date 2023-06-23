@@ -10,16 +10,22 @@
     <button>Выйти</button>
 </a>
 
-<form name="description" method="POST" action="">
+<form name="description" method="POST" action="/admin/update">
+    {{ csrf_field() }}
     <select name="product" id="product">
     @foreach ($products as $item)
     <option value="{{$item->id}}">
-        {{$item->name}}
+        <div>
+            {{$item->id}}
+            {{$item->name}}
+
+        </div>
     </option>                
     @endforeach
     </select>
 
     <input type="text" name="name" id="name" value="{{$item->name}}">
+    <input type="text" name="ean" id="ean" value="{{$item->ean}}">
     <input type="text" name="manucfacturer" id="manucfacturer" value="{{$item->manufacturer}}">
     <input type="text" name="massvalue" id="massvalue" value="{{$item->massvalue}}">
     <input type="text" name="masstype" id="masstype" value="{{$item->masstype}}">

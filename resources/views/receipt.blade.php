@@ -4,22 +4,27 @@
 
 @section('content')
 <h3>Добавить купленные товары</h3>
-<ul>
-    <form name="receipt" method="POST" action="/receipt">
-        <select name="product" id="product">
-            @foreach ($products as $item)
-            <option value="{{$item->id}}">
-                {{$item->name}}
-            </option>                
-            @endforeach
-        </select>
+<ul id="list" class="List">
 
-        <input type="number" name="price" id="price">
-        <input type="checkbox" name="sale" id="sale">
-        <label for="sale">Со скидкой</label>
-    </form>
+    <li>
+        <form name="receipt" method="POST" action="/receipt">
+            <select name="product" id="product">
+                @foreach ($products as $item)
+                <option value="{{$item->id}}">
+                    {{$item->name}}
+                </option>                
+                @endforeach
+            </select>
+            
+            <input type="number" name="price" id="price">
+            <input type="number" name="count" id="count">
+            <input type="checkbox" name="sale" id="sale">
+            <label for="sale">Со скидкой</label>
+        </form>
+    </li>
 
 </ul>
-<button>Добавить строчку</button>
-<button>Подтвердить</button>
+<script src="{{ URL::asset('./js/app.js') }}" type="text/javascript"></script>
+<button onclick="add()">Добавить строчку</button>
+<button onclick="{{URL::route('dump')}}">Подтвердить</button>
 @endsection

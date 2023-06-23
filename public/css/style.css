@@ -1,29 +1,24 @@
 body {
+    position: absolute;
     margin:0;
     font-family: 'Comfortaa', cursive;
     font-weight: 400;
     height: 100vh;
-    width: 100vh;
-    display: flex;
+    width: 100vw;
 }
 
 /* sidenav */
-.Sidenav {
+nav {
+    position:absolute;
+    top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
     width: 200px;
     background-color:#6c6;
 }
 
-.Sidenav nav {
-    display:flex;
-    flex-direction: column;
-    height: 90%;
-}
-
-.Sidenav nav a {
+nav a {
     margin: 5px 0px;
     padding: 15px 10px;
     font-weight: bold;
@@ -31,30 +26,42 @@ body {
     text-decoration: none;
 }
 
-.Sidenav nav a:hover {
+nav a:hover {
     color: #cfcfcf;
 }
 
-.Sidenav .Bottomnav {
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-between;
+nav .Logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+nav .Bottom {
+    margin-top: auto;
+    padding: 10px;
     font-weight: 200;
     font-size: small;
 }
 
-.Sidenav .Bottomnav a {
-    padding: 10px 0;
-    color: #bfbfbf;
-}
-
 /* Content */
 .Content {
+    top:0;
+    margin-left: 200px;
+    /* padding:20px; */
+    /* width: calc(100% - 200px); */
+    color:black;
+}
+
+.Content h1 {
     padding: 20px;
 }
 
-
 /* review */
+.Review{
+    display: grid;
+}
+
 .stars {
     float: left;
     padding: 0;
@@ -92,3 +99,18 @@ body {
 .stars > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
+
+/* Product */
+.Product .List {
+    
+}
+
+.Product .Link {
+    color: black;
+    text-decoration: none;
+    border-bottom: #777 5px;
+}
+
+.Product .Link:hover {
+    background-color: #bbb;
+}   

@@ -23,8 +23,11 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product');
+// Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product', function(Request $request){
+    dd($request);
+});
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('product');
 
 Route::get('/review', [ReviewController::class, 'index']);
 Route::post('/review', [ReviewController::class, 'review_check']);
@@ -34,7 +37,7 @@ Route::post('/receipt', [ReceiptController::class, 'save']);
 
 Route::get('/', [AdminController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'admin'])->middleware('auth')->name('admin');
-Route::post('/admin', [AdminController::class, '']);
+Route::put('/admin/update', [AdminController::class, 'update']);
 
 Route::get('/login', function(){
     if (Auth::check()) {return redirect(route('admin'));}
@@ -50,3 +53,7 @@ Route::get('/register', function(){
     return(view('register'));
 });
 Route::post('/register', [AdminController::class, 'register']);
+
+Route::get('/dump', function(Request $request){
+    dd($request);
+})->name('dump');

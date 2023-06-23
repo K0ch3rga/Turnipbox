@@ -23,13 +23,13 @@ class ReviewController extends Controller
         ]);
 
         $review = new Review();
-        $review->product = $request->input('product');
+        $review->product = $request->input('product_id');
         $review->text = $request->input('text');
         $review->stars = $request->input('stars');
         $review->name = $request->input('name');
 
         $review->save();
 
-        return redirect()->route('product', ['id', $request->product]);
+        return redirect()->route('product', [$request->product]);
     }
 }

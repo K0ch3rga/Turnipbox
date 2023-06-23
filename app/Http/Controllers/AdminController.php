@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\User;
-use Auth;
+
 
 class AdminController extends Controller
 {
@@ -18,6 +21,22 @@ class AdminController extends Controller
         return view('Admin', ['products'=>$products->all()]);
     } 
 
+    function update(Request $request){
+        $reference = Product::find($request->product);
+
+        $reference->update([
+            'ean' => $request->input('ean'),
+            'name' => $request->input('name'),
+            'manufacturer' => $request->input('manufacturer'),
+            'massvalue' => $request->input('massvalue'),
+            'masstype' => $request->input('masstype'),
+            'type' => $request->input('type'),
+            'tags' => $request->input('tags'),
+            'edit' => $request->input('edit')
+        ]);
+        return redirect(route('product', [$request->product]));
+    }
+    
     function register(Request $request) {
         if (Auth::check()) {
             return redirect(route('admin'));

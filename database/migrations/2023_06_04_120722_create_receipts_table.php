@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product')->references('id')->on('product');
+            $table->foreignId('product_id')->references('id')->on('products');
             $table->float('price', 8, 2);
             $table->boolean('sale');
             $table->timestamps();

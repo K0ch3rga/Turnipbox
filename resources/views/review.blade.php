@@ -6,7 +6,7 @@
 
 <h1>Добавить отзыв</h1>
 
-<form name="review" method="POST" action="/review/check">
+<form name="review" method="POST" action="/review">
     @csrf
     <select name="product" id="product">
         @foreach ($products as $item)
