@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Str;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,21 +47,10 @@ class AdminController extends Controller
             'login' => 'required|email',
         ]);
 
-        function generate($len) {
-            $chars = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
-            $string = '';
-            for ($i = 0; $i < $len; $i++) {
-                $index = rand(0, strlen($chars) - 1);
-                $string .= $chars[$index];
-            }
-            echo $string;
-            return $string;
-        };
-
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('login');
-        // $user->password = generate(10);
+        $user->password = Str::password(32, true, true, false);
         $user->password = $request->input('password');
         $user->save();
 

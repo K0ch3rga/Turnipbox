@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('text');
             $table->unsignedTinyInteger('stars');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
