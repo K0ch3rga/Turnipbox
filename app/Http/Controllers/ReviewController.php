@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controller;
 use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;

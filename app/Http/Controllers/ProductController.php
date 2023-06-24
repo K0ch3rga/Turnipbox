@@ -9,12 +9,13 @@ use App\Models\Review;
 
 class ProductController extends Controller
 {
-    function index() {
-        $products = new Product;
+    function index(Request $request) {
+
+        $products = Product::where($request->query())->get();
         $reviews = new Review;
         return view('Product', [
-            'products' => $products->all(),
-            'reviews' => $reviews->all(),
+            'products' => $products,
+            // 'reviews' => $reviews->all(),
         ]);
     }
 

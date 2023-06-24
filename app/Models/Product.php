@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     // public $timesamps = false;
-
+    protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
     function review() {

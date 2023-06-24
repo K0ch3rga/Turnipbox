@@ -12,7 +12,7 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    function index() {
+    function about() {
         return view('About');
     }
 

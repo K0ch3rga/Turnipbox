@@ -4,6 +4,7 @@
 
 @section('content')
     <h1>Все товары</h1>
+    <div class="Search"></div>
     <div class="Product List">
     @foreach ($products as $product)
     <div class="Line Product Link">
@@ -15,9 +16,6 @@
                 @foreach ($product->review() as $rev)
                 {{-- <p class="stars">{{$rev->stars}}</p>                 --}}
                 @endforeach
-                
-                <p></p>
-                <p></p>
             </div>
         </a>
     </div>
